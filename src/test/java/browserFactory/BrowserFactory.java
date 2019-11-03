@@ -20,19 +20,21 @@ public class BrowserFactory {
     }
 
     private WebDriver GetFirefoxDriver() {
-        FirefoxOptions options=new FirefoxOptions();
+        FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--width=1920");
         options.addArguments("--height=1080");
         options.addArguments("--headless");
-        System.setProperty("webdriver.gecko.driver","geckodriver");
+
+        System.setProperty("webdriver.gecko.driver","geckodriver.exe");
         return new FirefoxDriver(options);
     }
 
     private WebDriver GetChromeDriver() {
-        ChromeOptions options=new ChromeOptions();
-        options.addArguments("windows-size=1400,1200");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("window-size=1400,1200");
         options.addArguments("--headless");
-        System.setProperty("webdriver.chrome.driver","chromedriver");
+
+        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         return new ChromeDriver(options);
     }
 }

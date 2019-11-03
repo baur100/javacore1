@@ -63,4 +63,8 @@ public class SecondPageObjectTests extends BaseTest{
 
         Assert.assertTrue(logged);
     }
+    @Test
+    public void testSumm(){
+
+    }
 }
