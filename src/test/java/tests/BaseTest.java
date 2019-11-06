@@ -13,7 +13,6 @@ import pageObjects.LandingPage;
 public class BaseTest {
     WebDriver driver;
 
-
     @BeforeMethod
     @Parameters({"browser"})
     public void startUp(String browserName) throws NoSuchMethodException, NoSuchFieldError {
