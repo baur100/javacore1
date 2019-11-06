@@ -46,6 +46,24 @@ public class TestRecord {
     }
 
     @Test
+    public void clickAviaSales() {
+        driver.get("https://www.aviasales.ru/");
+        driver.findElement(By.id("origin")).sendKeys("NYC");
+        driver.findElement(By.id("destination")).sendKeys("LAS");
+        driver.findElement(By.xpath("(//*[@class='date-input__input'])[1]")).click();
+        driver.findElement(By.xpath("//*[@class='daypicker__day-wrap' and text()=4]")).click();
+        driver.findElement(By.xpath("//*[@class='daypicker__day-wrap' and text()=4]")).click();
+        driver.findElement(By.xpath("//*[@class='additional-fields --avia of_form_part']")).click();
+    }
+   @Test
+   public void clickDropDown(){
+       driver.get("https://deens-master.now.sh/");
+       JavascriptExecutor js = ((JavascriptExecutor) driver);
+       js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        driver.findElement(By.xpath("//option[@value='pl']")).click();
+
+   }
+    @Test
     public void deens_TryToLoginUsingCssSelectors_loginFailedUsingFluentWait() throws InterruptedException {
         driver.get("https://deens-master.now.sh/");
 
