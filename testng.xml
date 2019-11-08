@@ -6,6 +6,7 @@
         <classes>
             <class name="tests.PageObjectTests">
                 <methods>
+                    <include name="scrollPage"/>
                     <include name="checkNumberOfTripsInNewYork"/>
                     <include name="getReferenceCode"/>
                     <include name="clickEarnMoney"/>
