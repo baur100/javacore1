@@ -3,6 +3,7 @@
 
 <suite name="All tests" parallel="classes" thread-count="2">
     <test  name="All tests" preserve-order="true">
+        <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="tests.PageObjectTests">
                 <methods>
