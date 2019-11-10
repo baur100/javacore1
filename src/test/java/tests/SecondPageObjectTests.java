@@ -2,6 +2,7 @@ package tests;
 
 import listeners.RetryAnalyzer;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.DestinationPage;
 import pageObjects.LandingPage;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import static helpers.RandomStringGenerator.randomEmail;
 import static helpers.RandomStringGenerator.randomString;
 
+@Listeners(listeners.TestNgListeners.class)
 public class SecondPageObjectTests extends BaseTest{
 
     @Test
