@@ -22,7 +22,7 @@ public class TestRecord {
 
     @BeforeMethod
     public void startUp(){
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","chromedriver");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 20);
         longWait = new WebDriverWait(driver, 200);
@@ -53,7 +53,7 @@ public class TestRecord {
         driver.findElement(By.xpath("(//*[@class='date-input__input'])[1]")).click();
         driver.findElement(By.xpath("//*[@class='daypicker__day-wrap' and text()=4]")).click();
 
-        driver.findElement(By.xpath("//*[@class='daypicker__day-wrap' and text()=4]")).click();
+        driver.findElement(By.xpath("//*[@class='daypicker__day-wrap' and text()=7]")).click();
 
         driver.findElement(By.xpath("//*[@class='additional-fields --avia of_form_part']")).click();
 

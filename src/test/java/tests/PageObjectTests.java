@@ -16,10 +16,12 @@ public class PageObjectTests extends BaseTest{
 
     @Test
     public void scrollPage() throws InterruptedException {
+
         LandingPage landingPage = new LandingPage(driver);
         landingPage.open();
         landingPage.openBottomButton();
         Assert.assertEquals(driver.getCurrentUrl(),"https://deens-master.now.sh/new/trip");
+        logger.info("scrollPage finished");
     }
     @Test
     public void checkNumberOfTripsInNewYork(){
