@@ -1,10 +1,7 @@
 package tests;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -37,7 +34,7 @@ public class TestRecord {
 
         fluentWait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofMillis(200))
+                .pollingEvery(Duration.ofMillis(100))
                 .ignoring(NoSuchElementException.class);
 //        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 //        driver.manage().timeouts().setScriptTimeout(25, TimeUnit.SECONDS);
@@ -50,12 +47,29 @@ public class TestRecord {
         driver.quit();
 
     }
+
+    //lesson 18 drop down menu
+    @Test
+    public void deens_clickDropDown(){
+        driver.get("https://deens-master.now.sh/");
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        driver.findElement(By.xpath("//option[@value='pl']")).click();
+    }
+
+    //lesson 18 drop down menu
     @Test
     public void clickAviasales(){
         driver.get("https://www.aviasales.com/");
-        driver.findElement(By.id("origin")).sendKeys("NYC");
+        driver.findElement(By.id("origin")).clear();
+        driver.findElement(By.id("origin")).sendKeys("NYC",Keys.RETURN);
         driver.findElement(By.id("destination")).sendKeys("LAS");
-        driver.findElement(By.xpath("//*")).sendKeys("LAS");
+        driver.findElement(By.id("departDate")).click();
+        driver.findElement(By.xpath("//*[@class='daypicker__day-wrap' and text()=13]")).click();
+        driver.findElement(By.xpath("//*[@class='return-clear']")).click();
+        driver.findElement(By.xpath("//*[@class='additional-fields --avia of_form_part']")).click();
+
+
 
     }
 

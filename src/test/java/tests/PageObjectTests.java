@@ -15,11 +15,12 @@ public class PageObjectTests extends BaseTest {
     //homework 14
     @Test
     public void scrollPage(){
+        logger.info("scrollPage started");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.open();
         landingPage.openBottomoButton();
-
         Assert.assertEquals(driver.getCurrentUrl(), "https://deens-master.now.sh/new/trip");
+        logger.info("scrollPage finished");
 
 
     }

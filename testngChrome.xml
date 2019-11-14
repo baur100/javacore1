@@ -8,18 +8,18 @@
             <class name="tests.PageObjectTests">
                 <methods>
                     <include name="scrollPage"/>
-                    <include name="checkNumberOfTripsInNewYork"/>
-                    <include name="getReferenceCode"/>
-                    <include name="clickEarnMoney"/>
-                    <include name="loginTOApp"/>
+                    <exclude name="checkNumberOfTripsInNewYork"/>
+                    <exclude name="getReferenceCode"/>
+                    <exclude name="clickEarnMoney"/>
+                    <exclude name="loginTOApp"/>
                 </methods>
             </class>
             <class name="tests.SecondPageObjectTests">
                 <methods>
-                    <include name="second_checkNumberOfTripsInNewYork"/>
-                    <include name="second_getReferenceCode"/>
-                    <include name="second_clickEarnMoney"/>
-                    <include name="second_loginTOApp"/>
+                    <exclude name="second_checkNumberOfTripsInNewYork"/>
+                    <exclude name="second_getReferenceCode"/>
+                    <exclude name="second_clickEarnMoney"/>
+                    <exclude name="second_loginTOApp"/>
                 </methods>
             </class>
         </classes>
