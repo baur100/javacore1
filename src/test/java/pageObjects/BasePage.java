@@ -18,5 +18,6 @@ public class BasePage {
                 .withTimeout(Duration.ofSeconds(40))
                 .pollingEvery(Duration.ofMillis(200))
                 .ignoring(Exception.class);
+
     }
 }

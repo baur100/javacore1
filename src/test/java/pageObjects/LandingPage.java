@@ -1,8 +1,7 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
@@ -81,9 +80,9 @@ public class LandingPage extends BasePage {
         return driver.findElement((By.xpath("(//*[text()='New York'])[1]")));
     }
 
-    public SearchNYCPage openSearchNYCPage() {
+    public DestinationPage openSearchNYCPage() {
         getNYCThumb().click();
-        SearchNYCPage searchNYCPage = new SearchNYCPage(driver);
+        DestinationPage searchNYCPage = new DestinationPage(driver);
         return searchNYCPage;
     }
 
@@ -91,7 +90,41 @@ public class LandingPage extends BasePage {
         return wait.until(x -> driver.findElement(By.xpath("//*[@class=' lazyloaded']")).isDisplayed());
     }
 
+    public DestinationPage open(String destination) {
+
+        var city = driver.findElement(By.xpath("//h1[text()='" + destination + "']"));
+        city.click();
+        return new DestinationPage(driver);
+    }
+
     public boolean isLanded() {
         return getLandedImage();
     }
+
+    public WebElement getBootomButton() throws InterruptedException {
+        //elliminate with this code stale element
+        boolean staleElement = true;
+        WebElement button=null;
+        while (staleElement) {
+            try {
+                button = driver.findElement(By.xpath("//*[text()='Create a Trip & Start Earning']"));
+                staleElement = false;
+
+            } catch (StaleElementReferenceException e) {
+                staleElement = true;
+                Thread.sleep(100);
+            }
+
+        }
+        return button;
+    }
+        public void openBottomButton() throws InterruptedException {
+        //scroll page till the element
+            JavascriptExecutor js = ((JavascriptExecutor)driver);
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+            getBootomButton().click();
+        }
+
 }
+
+

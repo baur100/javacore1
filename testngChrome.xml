@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All tests" parallel="classes" thread-count="2">
+    <test name ="All tests" preserve-order="true">
+        <parameter name="browser" value="CHROME"></parameter>
+        <classes>
+            <class name = "tests.PageObjectTests">
+                <methods>
+                    <include name="clickEarnMoney"/>
+                    <exclude name="loginToApp"/>
+                    <include name="registerNewUser_LoggedAsNewUser"/>
+                    <exclude name="loginUser_copyReferralLink"/>
+                    <include name="checkNumberOfTripsNewYork"/>
+                    <include name="scroolPage"/>
+                </methods>
+            </class>
+            <class name="tests.SecondPageObjectTests">
+                <methods>
+                    <include name="secondClickEarnMoney"/>
+                    <include name="secondLoginToApp"/>
+                    <include name="secondRegisterNewUser_LoggedAsNewUser"/>
+                    <exclude name="secondLoginUser_copyReferralLink"/>
+                    <exclude name="secondCheckNumberOfTripsNewYork"/>
+                    <exclude name="secondScroolPage"/>
+                </methods>
+
+            </class>
+        </classes>
+
+    </test>
+</suite>

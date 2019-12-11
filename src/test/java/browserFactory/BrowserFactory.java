@@ -4,7 +4,9 @@ import enums.BrowserType;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BrowserFactory {
     public WebDriver createWebDriver(BrowserType browser) throws NoSuchMethodException {
@@ -21,13 +23,21 @@ public class BrowserFactory {
     }
 
     private WebDriver GetChromeDriver() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("window-size=1400,1200");
+        options.addArguments("--headless");
+
         System.setProperty("webdriver.chrome.driver","chromedriver 2");
-        return new ChromeDriver();
+        return new ChromeDriver(options);
     }
     private WebDriver GetFirefoxDriver() {
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--whidth=1920");
+        options.addArguments("--height=1080");
+        options.addArguments("--headless");
 
         System.setProperty("webdriver.gecko.driver","geckodriver");
 
-        return new FirefoxDriver();
+        return new FirefoxDriver(options);
     }
 }

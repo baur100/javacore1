@@ -3,25 +3,26 @@ package tests;
 
 import listeners.RetryAnalyzer;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.DestinationPage;
 import pageObjects.LandingPage;
+
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+
 import static helpers.RandomStringGenerator.randomEmail;
 import static helpers.RandomStringGenerator.randomString;
-@Listeners(listeners.TestNgListeners.class)
-public class PageObjectTests extends BaseTest {
+
+public class SecondPageObjectTests extends BaseTest {
 
     @Test
-    public void clickEarnMoney() {
+    public void secondClickEarnMoney() {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.open();
     }
 
     @Test (retryAnalyzer = RetryAnalyzer.class)
-    public void loginToApp() throws InterruptedException {
+    public void secondLoginToApp() throws InterruptedException {
         //create landing page and give it driver
         var landingPage = new LandingPage(driver);
         //open landing page
@@ -36,7 +37,7 @@ public class PageObjectTests extends BaseTest {
     }
 
     @Test
-    public void registerNewUser_LoggedAsNewUser() {
+    public void secondRegisterNewUser_LoggedAsNewUser() {
 //        Random randomSelector = new Random();
 //        var randomNumber = randomSelector.nextInt(10000);
         var landingPage = new LandingPage(driver);
@@ -67,7 +68,7 @@ public class PageObjectTests extends BaseTest {
     }
 
     @Test
-    public void loginUser_copyReferralLink() throws IOException, UnsupportedFlavorException {
+    public void secondLoginUser_copyReferralLink() throws IOException, UnsupportedFlavorException {
         var landingPage = logintoApp("useras","mailinator");
 
         Assert.assertTrue(landingPage.isLogged());
@@ -86,7 +87,7 @@ public class PageObjectTests extends BaseTest {
 
     }
     @Test
-    public void checkNumberOfTripsNewYork(){
+    public void secondCheckNumberOfTripsNewYork(){
        // var landingPage = logintoApp("useras","mailinator");
         var landingPage = new LandingPage(driver);
         //open landing page
@@ -105,22 +106,15 @@ public class PageObjectTests extends BaseTest {
         Assert.assertEquals(trips.size(),6);
 
     }
-
-
     @Test
-    public void scroolPage() throws InterruptedException {
+    public void testSumm(){
 
-        var landingPage = new LandingPage(driver);
-        //open landing page
-        landingPage.open();
-        landingPage.openBottomButton();
-
-        Assert.assertEquals(driver.getCurrentUrl(),"https://deens-master.now.sh/new/trip");
+    }
 
 
     }
 
 
-}
+
 
 
