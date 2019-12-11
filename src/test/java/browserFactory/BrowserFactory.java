@@ -25,7 +25,7 @@ public class BrowserFactory {
         options.addArguments("--height=1080");
         options.addArguments("--headless");
 
-        System.setProperty("webdriver.gecko.driver","geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver","geckodriver");
         return new FirefoxDriver(options);
     }
 
@@ -34,7 +34,7 @@ public class BrowserFactory {
         options.addArguments("window-size=1400,1200");
         options.addArguments("--headless");
 
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","chromedriver");
         return new ChromeDriver(options);
     }
 }
