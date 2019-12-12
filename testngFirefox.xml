@@ -2,24 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="All tests" parallel="classes" thread-count="2">
-    <test  name="All tests" preserve-order="true">
+    <test name="All tests" preserve-order="true">
         <parameter name="browser" value="FIREFOX"/>
         <classes>
             <class name="tests.PageObjectTests">
                 <methods>
-                    <include name="scrollPage"/>
-                    <include name="checkNumberOfTripsInNewYork"/>
-                    <include name="getReferenceCode"/>
-                    <include name="clickEarnMoney"/>
-                    <include name="loginTOApp"/>
+                    <include name="scrollPage" />
+                    <exclude name="checkNumberOfTripsInNewYork" />
+                    <exclude name="getReferenceCode" />
+                    <include name="openLandingPage" />
+                    <include name="loginToApp" />
+                    <exclude name="registerNewUser_LoggedAsNewUser" />
                 </methods>
             </class>
             <class name="tests.SecondPageObjectTests">
                 <methods>
-                    <include name="second_checkNumberOfTripsInNewYork"/>
-                    <include name="second_getReferenceCode"/>
-                    <include name="second_clickEarnMoney"/>
-                    <include name="second_loginTOApp"/>
+                    <exclude name="second_checkNumberOfTripsInNewYork" />
+                    <exclude name="second_getReferenceCode" />
+                    <include name="second_openLandingPage" />
+                    <include name="second_loginToApp" />
+                    <exclude name="second_registerNewUser_LoggedAsNewUser" />
                 </methods>
             </class>
         </classes>
