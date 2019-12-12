@@ -25,7 +25,8 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testngChrome.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>testngChrome.xml</suiteXmlFile>-->
+                        <suiteXmlFile>${browser}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
